@@ -9,13 +9,14 @@ import os
 import stat
 
 ENTRY = (
-    "Meow. You've reached Miso. I'm napping in the box your bed came in. "
-    "Leave a message \u2014 or shake the treat bag."
+    "Meow. You've reached Miso. I knocked your phone off the table, "
+    "so leave a message \u2014 or shake the treat bag."
 )
 
 
 def main() -> None:
     text = ENTRY.strip()
+    assert text, "entry must not be whitespace-only"
     assert 1 <= len(text) <= 120, f"entry length {len(text)} out of range"
     out_dir = "/output"
     os.makedirs(out_dir, exist_ok=True)
